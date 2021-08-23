@@ -1,13 +1,12 @@
-export class advert {
-
-  constructor( description: string,
-  title: string,
-  // postedBy: AppUser,
-  price:number,
-  // images:Image[],
-  address:string,
-  //car:Car,
-  //reports:Report[]
-  postDate:Date) {}
-
+export class Advert {
+  description: string;
+  title: string;
+  price: number;
+  address: string;
+  postDate: Date;
 }
+
+  //              // postedBy: AppUser,
+  //              // images:Image[],
+  //              //car:Car,
+  //              //reports:Report[]

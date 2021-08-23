@@ -1,1 +1,11 @@
-<p>advert-list works!</p>
+<p *ngFor="let tempAdvert of adverts">
+  {{tempAdvert.title}}
+  <br class="mt-3 mb-3">
+  {{tempAdvert.description}}
+  <br class="mt-3 mb-3">
+  {{tempAdvert.address}}
+  <br class="mt-3 mb-3">
+  {{tempAdvert.price | currency:"USD"}}
+  <br class="mt-3 mb-3">
+  {{tempAdvert.postDate}}
+</p>

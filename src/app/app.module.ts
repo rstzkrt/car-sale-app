@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { AdvertListComponent } from './components/advert-list/advert-list.component';
+import {HttpClientModule} from "@angular/common/http";
+import {AdvertService} from "./services/advert.service";
 
 @NgModule({
   declarations: [
@@ -10,9 +12,10 @@ import { AdvertListComponent } from './components/advert-list/advert-list.compon
     AdvertListComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AdvertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
