@@ -4,7 +4,8 @@ import {Advert} from "../../common/advert";
 
 @Component({
   selector: 'app-advert-list',
-  templateUrl: './advert-list.component.html',
+  templateUrl: './advert-list-table.component.html',
+  //templateUrl: './advert-list.component.html',
   styleUrls: ['./advert-list.component.css']
 })
 export class AdvertListComponent implements OnInit {

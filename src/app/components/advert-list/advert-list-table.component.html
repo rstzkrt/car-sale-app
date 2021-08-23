@@ -1,0 +1,16 @@
+<table class="table">
+  <thead class="table-dark">
+    <tr>
+      <th>Advert Title</th>
+      <th>Address</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tempAdvert of adverts">
+    <td>{{tempAdvert.title}}</td>
+    <td>{{tempAdvert.address}}</td>
+    <td>{{tempAdvert.price |currency:"USD"}}</td>
+  </tr>
+  </tbody>
+</table>
