@@ -1,16 +1,38 @@
-<table class="table">
-  <thead class="table-dark">
-    <tr>
-      <th>Advert Title</th>
-      <th>Address</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let tempAdvert of adverts">
-    <td>{{tempAdvert.title}}</td>
-    <td>{{tempAdvert.address}}</td>
-    <td>{{tempAdvert.price |currency:"USD"}}</td>
-  </tr>
-  </tbody>
-</table>
+<button mat-button (click)="changeLayout()">Change Layout</button>
+
+    <div class="row"  *ngIf="!isLayoutTest" >
+      <div *ngFor="let tempAdvert of adverts" class="col-md-3">
+        <mat-card style="max-width: 350px; height: 450px" >
+          <mat-card-header>
+            <img mat-card-avatar src="{{tempAdvert.postedBy.avatar}}" style="background-size: cover;">
+            <mat-card-title>{{tempAdvert.postedBy.firstName}}</mat-card-title>
+            <mat-card-subtitle>{{tempAdvert.address}}</mat-card-subtitle>
+          </mat-card-header>
+          <img mat-card-image src="{{tempAdvert.images[0].link}}">
+          <mat-card-content>
+            <h3>{{tempAdvert.title}}</h3>
+            <p>
+              {{tempAdvert.description}}
+            </p>
+            {{tempAdvert.price | currency:"USD"}}
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-button color="primary">Take a look at advert</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="isLayoutTest">
+      <div *ngFor="let tempAdvert of adverts" class="col-md-3">
+        <div href="#" class="card card-product-grid" >
+          <a href="#" class="img-wrap"> <img src="{{tempAdvert.images[0].link}}"> </a>
+          <figcaption class="info-wrap">
+            <a href="#" class="title">{{tempAdvert.title}}</a>
+            <a href="#" class="title">{{tempAdvert.address}}</a>
+            <div class="price mt-1">{{tempAdvert.price | currency:"USD"}}</div>
+          </figcaption>
+        </div>
+      </div>
+    </div>
+

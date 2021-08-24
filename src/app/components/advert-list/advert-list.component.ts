@@ -10,12 +10,17 @@ import {Advert} from "../../common/advert";
 })
 export class AdvertListComponent implements OnInit {
 
-  adverts:Advert[]
+  isLayoutTest:boolean=false;
+  adverts:Advert[];
 
   constructor(private advertService:AdvertService) { }
 
   ngOnInit(): void {
   this.listAdverts();
+  }
+
+  changeLayout():void {
+  this.isLayoutTest=!this.isLayoutTest;
   }
 
   listAdverts(){
@@ -26,4 +31,3 @@ export class AdvertListComponent implements OnInit {
     )
   }
 }
-
