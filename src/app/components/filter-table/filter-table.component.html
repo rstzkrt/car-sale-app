@@ -1,0 +1,57 @@
+<mat-card-content>
+  <p>Filter</p>
+  <section class="example-section">
+
+    <label>Max Price:</label>
+    <mat-slider color="primary"
+                thumbLabel
+                [displayWith]="formatLabel"
+                tickInterval="1000"
+                step="100"
+                min="0"
+                max="999999"
+                aria-label="units"></mat-slider>
+
+    <label>Max Mileage:</label>
+    <mat-slider color="primary"
+                thumbLabel
+                tickInterval="1000"
+                step="100"
+                min="0"
+                max="999999"
+                aria-label="units"></mat-slider>
+
+    <label class="example-margin">Body Type:</label>
+    <mat-radio-group>
+      Sedan<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      Hatchback<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      Coupe<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      Station wagon<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      Minivan<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      SUV<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      Sports car<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+    </mat-radio-group>
+    <!--    -->
+    <section>
+      <label class="example-margin">Fuel:</label>
+      <mat-radio-group>
+        Gasoline<mat-radio-button class="example-margin" color="primary" value="before" ></mat-radio-button>
+        Diesel<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+        LPG<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+        Hybrid<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+        Electric<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      </mat-radio-group>
+    </section>
+    <!--      -->
+    <section>
+      <label class="example-margin">Gear:</label>
+      <mat-radio-group>
+        Automatic<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+        Semi-auto<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+        Manual<mat-radio-button class="example-margin" color="primary" value="before"></mat-radio-button>
+      </mat-radio-group>
+    </section>
+    <!--      -->
+    Only New Cars<mat-checkbox class="example-margin" color="primary"></mat-checkbox>
+  </section>
+</mat-card-content>
