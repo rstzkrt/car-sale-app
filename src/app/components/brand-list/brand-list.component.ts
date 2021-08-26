@@ -20,7 +20,7 @@ export class BrandListComponent implements OnInit {
   listBrands():void{
     this.brandLogoService.getBrandLogos().subscribe(
       data=>{
-        this.brandLogo=data;//
+        this.brandLogo=data;
       }
     )
   }

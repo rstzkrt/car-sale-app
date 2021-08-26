@@ -1,13 +1,9 @@
-<!--*ngFor="let brand of brandLogo"-->
-<nav class="card">
-  <ul class="menu-category" >
-    <li>
-      <a href="#" style="margin-left: auto; margin-right: auto;" >
-        <img mat-card-avatar src="https://www.carlogos.org/car-logos/lamborghini-logo-1000x1100-show.png" style="background-size: cover;">
-<!--          {{brand.brand}}-->
-      </a>
-    </li>
-  </ul>
-</nav>
-
-
+<ul class="menu-category" *ngFor="let brand of brandLogo">
+  <li>
+    <a href="#" style="margin-left: auto; margin-right: auto;">
+      <img mat-card-avatar src="{{brand.logo}}" style="object-fit: cover; width: 23%; height: 25%;" >
+      {{brand.brand}}
+    </a>
+  </li>
+</ul>
+<!-- style="background-size: cover; size: auto;" -->
