@@ -39,102 +39,23 @@
       </div> <!-- row.// -->
     </div> <!-- container.// -->
   </section> <!-- header-main .// -->
-
-  <nav class="navbar navbar-main navbar-expand-lg navbar-light border-bottom">
-    <div class="container">
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" aria-controls="main_nav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="main_nav">
-        <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link" href="#">MostViewed Cars</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Something</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#"> More</a>
-            <div class="dropdown-menu">
-              <a class="dropdown-item" href="#">Sport Cars</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Category 1</a>
-              <a class="dropdown-item" href="#">Category 2</a>
-              <a class="dropdown-item" href="#">Category 3</a>
-            </div>
-          </li>
-        </ul>
-      </div> <!-- collapse .// -->
-    </div> <!-- container .// -->
-  </nav>
-
 </header> <!-- section-header.// -->
-
-
 
 <section class="section-main bg padding-y">
   <div class="container">
-
     <div class="row">
-      <aside class="col-md-3">
-        <nav class="card">
-          <ul class="menu-category">
-            <li><a href="#">Second Hand</a></li>
-            <li><a href="#">Had crash</a></li>
-            <li><a href="#">under 1000 < mile </a></li>
-            <li><a href="#">Second Hand</a></li>
-            <li><a href="#">Had crash</a></li>
-            <li><a href="#">under 1000 < mile </a></li>
-            <li><a href="#">Second Hand</a></li>
-            <li><a href="#">Had crash</a></li>
-            <li><a href="#">under 1000 < mile </a></li>
-            <li><a href="#">Second Hand</a></li>
-            <li><a href="#">Had crash</a></li>
-            <li><a href="#">under 1000 < mile </a></li>
-          </ul>
-        </nav>
-      </aside> <!-- col.// -->
-      <div class="col-md-9">
-        <article class="banner-wrap">
-          <!-- Most viewed cars photo or Logo --><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZoD6DY2NwTfDveysY1Q_W9askUA17WAmJXg&usqp=CAU" class="w-100 rounded">
-        </article>
-      </div> <!-- col.// -->
-    </div> <!-- row.// -->
+      <aside fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="30%">
+        <app-brand-list></app-brand-list>
+
+      </aside>
+      <aside class="col-md-9">
+        <div class="container">
+          <app-advert-list></app-advert-list>
+        </div>
+      </aside>
+    </div>
   </div> <!-- container //  -->
 </section>
-
-
-
-
-
-<section class="section-name padding-y-sm" >
-  <div class="container">
-    <app-advert-list></app-advert-list>
-  </div>
-</section>
-
-
-
 
 <footer class="section-footer border-top bg">
   <div class="container">
