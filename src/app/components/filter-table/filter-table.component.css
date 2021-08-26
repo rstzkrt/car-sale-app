@@ -1,0 +1,13 @@
+mat-slider {
+  width: 300px;
+}
+::ng-deep
+.mat-slider
+.mat-slider-wrapper
+.mat-slider-thumb-container
+.mat-slider-thumb-label {
+  width: 50px !important;
+  height: 50px !important;
+  top: -62px !important;
+  right: -25px !important;
+}
