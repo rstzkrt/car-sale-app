@@ -1,7 +1,7 @@
 mat-toolbar {
   justify-content: space-between;
   margin-left: 16px;
-  margin-right: 16px;
+  margin-right: 18px;
 }
 
 .content {
@@ -10,4 +10,19 @@ mat-toolbar {
 
 .content > mat-card {
   margin-bottom: 16px;
+}
+
+.example-h2 {
+  margin: 10px;
+}
+
+.example-section {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  height: 60px;
+}
+
+.example-margin {
+  margin: 0 10px;
 }
