@@ -1,42 +1,30 @@
-<button mat-button color="primary" (click)="changeLayout()">Change Layout</button>
-<button mat-button color="primary">Create an advert</button>
+<mat-toolbar color="primary">
+  <button mat-button (click)="toggleGridColumns()" fxHide.lt-md>
+    <span *ngIf="gridColumns === 4">Three Columns</span>
+    <span *ngIf="gridColumns === 3">Four Columns</span>
+  </button>
+  <button mat-button>Create an advert</button>
+</mat-toolbar>
 
-<br>
-<br>
-
-<div class="row" *ngIf="!isLayoutTest">
-  <div *ngFor="let tempAdvert of adverts" class="col-md-3">
-    <mat-card style="max-width: 350px; height: 450px">
-      <mat-card-header>
-        <img mat-card-avatar src="{{tempAdvert.postedBy.avatar}}" style="background-size: cover; ">
-        <mat-card-title>{{tempAdvert.postedBy.firstName}}</mat-card-title>
-        <mat-card-subtitle>{{tempAdvert.address}}</mat-card-subtitle>
-      </mat-card-header>
-      <img mat-card-image src="{{tempAdvert.images[0].link}}">
-      <mat-card-content>
-        <h3>{{tempAdvert.title}}</h3>
-        <p>
-          {{tempAdvert.description}}
-        </p>
-        {{tempAdvert.price | currency:"USD"}}
-      </mat-card-content>
-      <mat-card-actions>
-        <button mat-button color="primary">Take a look at advert</button>
-      </mat-card-actions>
-    </mat-card>
-  </div>
-</div>
-
-<div class="row" *ngIf="isLayoutTest">
-  <div *ngFor="let tempAdvert of adverts" class="col-md-3">
-    <div href="#" class="card card-product-grid">
-      <a href="#" class="img-wrap"> <img src="{{tempAdvert.images[0].link}}"> </a>
-      <figcaption class="info-wrap">
-        <a href="#" class="title">{{tempAdvert.title}}</a>
-        <a href="#" class="title">{{tempAdvert.address}}</a>
-        <div class="price mt-1">{{tempAdvert.price | currency:"USD"}}</div>
-      </figcaption>
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+    <div [fxFlex]="(100/gridColumns) + '%'" fxFlex.xs="100%" fxFlex.sm="33%" fxLayoutAlign="start start" *ngFor="let advert of adverts">
+      <mat-card class="mat-elevation-z4" fxFlexAlign="stretch">
+        <mat-card-header>
+          <img mat-card-avatar src="{{ advert.postedBy.avatar }}" style="background-size: cover;">
+          <mat-card-title>{{ advert.postedBy.firstName }}</mat-card-title>
+          <mat-card-subtitle>{{ advert.address }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="{{ advert.images[0].link }}">
+        <mat-card-content>
+          <h3>{{ advert.title }}</h3>
+          <p>{{ advert.description }}</p>
+          {{ advert.price | currency:"USD" }}
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button>See details</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>
-

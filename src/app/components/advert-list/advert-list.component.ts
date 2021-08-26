@@ -1,32 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AdvertService} from "../../services/advert.service";
 import {Advert} from "../../common/advert";
 
 @Component({
   selector: 'app-advert-list',
   templateUrl: './advert-list-table.component.html',
-  //templateUrl: './advert-list.component.html',
   styleUrls: ['./advert-list.component.css']
 })
 export class AdvertListComponent implements OnInit {
 
-  isLayoutTest:boolean=false;
-  adverts:Advert[];
+  adverts: Advert[];
+  gridColumns = 3;
 
-  constructor(private advertService:AdvertService) { }
+  constructor(private advertService: AdvertService) {}
 
   ngOnInit(): void {
-  this.listAdverts();
+    this.listAdverts();
   }
 
-  changeLayout():void {
-  this.isLayoutTest=!this.isLayoutTest;
+  toggleGridColumns() {
+    this.gridColumns = this.gridColumns === 3 ? 4 : 3;
   }
 
-  listAdverts(){
+  listAdverts() {
     this.advertService.getAdvertList().subscribe(
-      data=>{
-        this.adverts=data;
+      data => {
+        this.adverts = data;
       }
     )
   }
