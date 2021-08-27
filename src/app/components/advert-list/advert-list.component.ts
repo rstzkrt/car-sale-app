@@ -10,6 +10,7 @@ import {Advert} from "../../common/advert";
 export class AdvertListComponent implements OnInit {
   adverts: Advert[];
   clicked:boolean=false;
+  favorite:boolean=false;
 
   constructor(private advertService: AdvertService) {}
 
@@ -17,6 +18,9 @@ export class AdvertListComponent implements OnInit {
     this.listAdverts();
   }
 
+  isFavorite():void{
+    this.favorite=!this.favorite;
+  }
   isClicked():void{
     this.clicked=!this.clicked;
   }

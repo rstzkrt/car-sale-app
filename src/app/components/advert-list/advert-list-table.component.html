@@ -16,6 +16,15 @@
     <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%" fxLayoutAlign="start start" *ngFor="let advert of adverts">
       <mat-card class="mat-elevation-z4" fxFlexAlign="stretch">
         <mat-card-header>
+
+          <button mat-icon-button (click)="isFavorite()" color="primary"  style="margin-left: auto" *ngIf="favorite">
+            <mat-icon>favorite</mat-icon>
+          </button>
+
+          <button mat-icon-button (click)="isFavorite()" color="primary"  style="margin-left: auto" *ngIf="!favorite">
+            <mat-icon>check_circle</mat-icon>
+          </button>
+
           <img mat-card-avatar src="{{ advert.postedBy.avatar }}" style="background-size: cover;">
           <mat-card-title>{{ advert.postedBy.firstName }}</mat-card-title>
           <mat-card-subtitle>{{ advert.address }}</mat-card-subtitle>
