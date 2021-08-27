@@ -8,13 +8,17 @@ import {Advert} from "../../common/advert";
   styleUrls: ['./advert-list.component.css']
 })
 export class AdvertListComponent implements OnInit {
-
   adverts: Advert[];
+  clicked:boolean=false;
 
   constructor(private advertService: AdvertService) {}
 
   ngOnInit(): void {
     this.listAdverts();
+  }
+
+  isClicked():void{
+    this.clicked=!this.clicked;
   }
 
   listAdverts() {

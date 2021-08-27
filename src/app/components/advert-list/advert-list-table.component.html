@@ -1,34 +1,16 @@
 <mat-toolbar color="primary">
-  <button mat-button>Create an advert</button>
+  <button mat-flat-button>
+    <mat-icon>add</mat-icon>
+    Create an advert
+  </button>
+  <button mat-flat-button (click)="isClicked()">Filter</button>
 </mat-toolbar>
 
 <div class="content">
 
-  <!-- Filter table-->
-  <mat-card>
-    <mat-card-content>
-      <h2 class="example-h2">Filter Table</h2>
-
-      <section class="example-section">
-        <mat-checkbox class="example-margin" color="primary" >Checked</mat-checkbox>
-        <mat-checkbox class="example-margin" color="primary">Indeterminate</mat-checkbox>
-      </section>
-
-      <section class="example-section">
-        <label class="example-margin">Align:</label>
-        <mat-radio-group>
-          <mat-radio-button class="example-margin" color="primary" value="after">After</mat-radio-button>
-          <mat-radio-button class="example-margin" color="primary" value="before">Before</mat-radio-button>
-        </mat-radio-group>
-      </section>
-
-      <section class="example-section">
-        <mat-checkbox class="example-margin" color="primary" >Disabled</mat-checkbox>
-      </section>
-    </mat-card-content>
+  <mat-card *ngIf="clicked">
+    <app-filter-table></app-filter-table>
   </mat-card>
-
-
 
   <div fxLayout="row wrap" fxLayoutGap="16px grid">
     <div fxFlex="33%" fxFlex.xs="100%" fxFlex.sm="33%" fxLayoutAlign="start start" *ngFor="let advert of adverts">
@@ -38,7 +20,7 @@
           <mat-card-title>{{ advert.postedBy.firstName }}</mat-card-title>
           <mat-card-subtitle>{{ advert.address }}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image style="object-fit: cover; height: 40%;" src="{{ advert.images[0].link }}">
+        <img mat-card-image style="object-fit: cover; height: 45%;" src="{{ advert.images[0].link }}">
         <mat-card-content>
           <h3>{{ advert.title }}</h3>
           <p>{{ advert.description }}</p>

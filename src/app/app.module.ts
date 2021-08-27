@@ -18,13 +18,17 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
+import {FilterTableComponent} from "./components/filter-table/filter-table.component";
+import {MatSliderModule} from "@angular/material/slider";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AdvertListComponent,
-    BrandListComponent
+    BrandListComponent,
+    FilterTableComponent,
+    FilterTableComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,8 @@ import {MatRadioModule} from "@angular/material/radio";
     MatFormFieldModule,
     MatDatepickerModule,
     FormsModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSliderModule
   ],
   providers: [AdvertService ,HttpClient ,BrandLogoService],
   bootstrap: [AppComponent]

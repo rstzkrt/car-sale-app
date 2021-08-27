@@ -13,8 +13,7 @@ mat-toolbar {
 }
 
 .example-h2 {
-  margin: 10px;
-}
+  margin: 10px;}
 
 .example-section {
   display: flex;
@@ -26,3 +25,4 @@ mat-toolbar {
 .example-margin {
   margin: 0 10px;
 }
+
