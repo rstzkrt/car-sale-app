@@ -20,7 +20,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
 import {FilterTableComponent} from "./components/filter-table/filter-table.component";
 import {MatSliderModule} from "@angular/material/slider";
-import { SeeAdvertPageComponent } from './components/see-advert-page/see-advert-page.component';
+import { AdvertDetailPageComponent } from './components/advert-detail-page/advert-detail-page.component';
 
 
 @NgModule({
@@ -30,7 +30,7 @@ import { SeeAdvertPageComponent } from './components/see-advert-page/see-advert-
     BrandListComponent,
     FilterTableComponent,
     FilterTableComponent,
-    SeeAdvertPageComponent
+    AdvertDetailPageComponent
   ],
   imports: [
     BrowserModule,
