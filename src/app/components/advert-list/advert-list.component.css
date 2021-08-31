@@ -12,6 +12,7 @@ mat-toolbar {
   margin-bottom: 16px;
 }
 
+/*/ see detail button align bottom/*/
 .mat-card{
   display:flex;
   flex-direction: column;
@@ -26,6 +27,7 @@ mat-toolbar {
   overflow: auto;
 }
 
+/**/
 .example-h2 {
   margin: 10px;}
 
@@ -39,4 +41,3 @@ mat-toolbar {
 .example-margin {
   margin: 0 10px;
 }
-

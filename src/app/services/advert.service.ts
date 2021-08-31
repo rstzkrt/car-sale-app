@@ -9,9 +9,17 @@ import { Advert } from '../common/advert';
 })
 export class AdvertService {
 
+
   private baseUrl="https://car-sale-api.herokuapp.com/adverts"
 
   constructor(private httpClient:HttpClient) {}
+
+  getProduct(theProductId: number): Observable<Advert> {
+
+    const productUrl = `${this.baseUrl}/${theProductId}/?projection=advertProjection`;
+
+    return this.httpClient.get<Advert>(productUrl);
+  }
 
     getAdvertList():Observable<Advert[]>{
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(

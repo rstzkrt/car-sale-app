@@ -24,8 +24,11 @@ import { AdvertDetailPageComponent } from './components/advert-detail-page/adver
 import {  RouterModule,Routes} from "@angular/router";
 
 
-const routes:Routes=[
-  {path:'adverts/:id',component:AdvertDetailPageComponent}
+const routes:Routes =[
+  {path:'adverts/:id',component:AdvertDetailPageComponent},
+  {path:'adverts',component:AdvertListComponent},
+  {path:'',redirectTo:'adverts',pathMatch:'full'},
+  {path:'**',redirectTo:'adverts',pathMatch:'full'}
 ]
 
 @NgModule({
@@ -33,7 +36,6 @@ const routes:Routes=[
     AppComponent,
     AdvertListComponent,
     BrandListComponent,
-    FilterTableComponent,
     FilterTableComponent,
     AdvertDetailPageComponent
   ],
@@ -53,11 +55,11 @@ const routes:Routes=[
     FormsModule,
     MatRadioModule,
     MatSliderModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+
   ],
   providers: [AdvertService ,HttpClient ,BrandLogoService],
   bootstrap: [AppComponent],
-  exports: [RouterModule]
 })
 export class AppModule {
 }

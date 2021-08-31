@@ -6,6 +6,7 @@
           <img style="object-fit: cover; width: 200px; height: 50px;" src="/assets/img/Car-sale-logo.jpeg"/>
         </div>
         <div class="col-lg-6 col-sm-12">
+
           <form action="#" class="search">
             <div class="input-group w-100">
               <input type="text" class="form-control" placeholder="Search">
@@ -15,8 +16,9 @@
                 </button>
               </div>
             </div>
-          </form> <!-- search-wrap .end// -->
-        </div> <!-- col.// -->
+          </form>
+
+        </div>
         <div class="col-lg-4 col-sm-6 col-12">
           <div class="widgets-wrap float-md-right">
             <div class="widget-header  mr-3">
@@ -34,31 +36,34 @@
               </div>
             </div>
 
-          </div> <!-- widgets-wrap.// -->
-        </div> <!-- col.// -->
-      </div> <!-- row.// -->
-    </div> <!-- container.// -->
-  </section> <!-- header-main .// -->
-</header> <!-- section-header.// -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</header>
 
 
 
 <section class="section-main bg padding-y">
   <div class="container">
-
     <div class="row">
       <aside fxFlex="25%" fxFlex.xs="50%" fxFlex.sm="30%" fxHide.xs>
         <nav class="card">
+
         <app-brand-list></app-brand-list>
+
         </nav>
       </aside>
       <aside class="col-md-9">
         <div class="container">
-          <app-advert-list></app-advert-list>
+          <router-outlet></router-outlet>
+
+<!--          <app-advert-list></app-advert-list>-->
         </div>
       </aside>
     </div>
-  </div> <!-- container //  -->
+  </div>
 </section>
 
 <footer class="section-footer border-top bg">
@@ -83,8 +88,8 @@
             <li><a href="#"> My Favourites </a></li>
           </ul>
         </aside>
-      </div> <!-- row.// -->
-    </section>  <!-- footer-top.// -->
+      </div>
+    </section>
 
     <section class="footer-bottom row">
       <div class="col-md-2">
@@ -95,6 +100,6 @@
         <span class="px-2">+000-000-0000</span>
       </div>
     </section>
-  </div><!-- //container -->
+  </div>
 </footer>
-<!-- ========================= FOOTER END // ========================= -->
+
