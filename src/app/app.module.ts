@@ -21,7 +21,12 @@ import {MatRadioModule} from "@angular/material/radio";
 import {FilterTableComponent} from "./components/filter-table/filter-table.component";
 import {MatSliderModule} from "@angular/material/slider";
 import { AdvertDetailPageComponent } from './components/advert-detail-page/advert-detail-page.component';
+import {  RouterModule,Routes} from "@angular/router";
 
+
+const routes:Routes=[
+  {path:'adverts/:id',component:AdvertDetailPageComponent}
+]
 
 @NgModule({
   declarations: [
@@ -47,10 +52,12 @@ import { AdvertDetailPageComponent } from './components/advert-detail-page/adver
     MatDatepickerModule,
     FormsModule,
     MatRadioModule,
-    MatSliderModule
+    MatSliderModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [AdvertService ,HttpClient ,BrandLogoService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [RouterModule]
 })
 export class AppModule {
 }
