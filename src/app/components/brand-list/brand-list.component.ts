@@ -10,7 +10,6 @@ import {BrandLogoService} from "../../services/brand-logo.service";
 export class BrandListComponent implements OnInit {
 
   //brandLogo:BrandLogoModel[];
-
   brands: any[] = [
     {name: "Tesla", logo: "tesla-logo.png"},
     {
