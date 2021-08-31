@@ -4,6 +4,7 @@ import {AppUser} from "./app-user";
 import {Report} from "./report";
 
 export class Advert {
+  advertId:number;
   description: string;
   title: string;
   price: number;
