@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {AdvertService} from "../../services/advert.service";
+import {Advert} from "../../common/advert";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-advert-detail-page',
@@ -7,9 +10,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdvertDetailPageComponent implements OnInit {
 
-  constructor() { }
+  advert:Advert=new Advert();
+
+  constructor(private advertService:AdvertService, private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(()=>{
+      this.handleAdvertDetail();
+    })
+  }
+
+  handleAdvertDetail(){
+    const advertId:number=+this.route.snapshot.paramMap.get('id');
+    this.advertService.getAdvertById(advertId).subscribe(
+      data=>{
+        this.advert=data;
+      }
+    )
   }
 
 }

@@ -27,6 +27,7 @@ import {  RouterModule,Routes} from "@angular/router";
 const routes:Routes =[
   {path:'adverts/:id',component:AdvertDetailPageComponent},
   {path:'adverts',component:AdvertListComponent},
+  {path:'brands/:brand',component:AdvertListComponent},//when click to brands ,list the cars by the brand
   {path:'',redirectTo:'adverts',pathMatch:'full'},
   {path:'**',redirectTo:'adverts',pathMatch:'full'}
 ]
