@@ -12,6 +12,20 @@ mat-toolbar {
   margin-bottom: 16px;
 }
 
+.mat-card{
+  display:flex;
+  flex-direction: column;
+}
+
+.mat-card-header {
+  flex-shrink: 0;
+}
+
+.mat-card-content{
+  flex-grow: 1;
+  overflow: auto;
+}
+
 .example-h2 {
   margin: 10px;}
 
