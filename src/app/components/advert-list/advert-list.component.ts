@@ -29,6 +29,11 @@ export class AdvertListComponent implements OnInit {
     this.advertService.getAdvertList().subscribe(
       data => {
         this.adverts = data;
+
+        //mock data
+        for(let i=5;i<200;i++){
+          this.adverts[i]=data[1]
+        }
       }
     )
   }
