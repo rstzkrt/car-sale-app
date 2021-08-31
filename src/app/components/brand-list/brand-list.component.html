@@ -1,6 +1,6 @@
 <ul class="menu-category" *ngFor="let brand of brands">
   <li>
-    <a href="#" style="margin-left: auto; margin-right: auto;">
+    <a routerLink="brands/{{brand.name}}" style="margin-left: auto; margin-right: auto;">
       <img mat-card-avatar src="/assets/img/brands/{{brand.logo}}"
            style="object-fit: cover; width: 25%; height: 25%;">
       {{brand.name}}
