@@ -1,0 +1,18 @@
+<form action="#" class="search">
+  <div class="input-group w-100">
+
+    <input #searchInput type="text"
+           class="form-control"
+           placeholder="Search"
+           (keyup.enter)="doSearch(searchInput.value)"
+    />
+
+    <div class="input-group-append">
+      <button (click)="doSearch(searchInput.value)"
+        class="btn btn-primary" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+
+  </div>
+</form>
