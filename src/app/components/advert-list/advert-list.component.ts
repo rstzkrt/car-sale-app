@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdvertService} from "../../services/advert.service";
 import {Advert} from "../../common/advert";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-advert-list',
@@ -8,33 +9,54 @@ import {Advert} from "../../common/advert";
   styleUrls: ['./advert-list.component.css']
 })
 export class AdvertListComponent implements OnInit {
-  adverts: Advert[];
-  clicked:boolean=false;
-  favorite:boolean=false;
 
-  constructor(private advertService: AdvertService) {}
+  adverts: Advert[];
+  currentBrand:string;
+  searchMode:boolean;
+
+  clicked:boolean=false;//
+  favorite:boolean=false;//
+
+  constructor(private advertService: AdvertService,
+              private route:ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.listAdverts();
+    this.route.paramMap.subscribe(()=>{
+      this.listAdverts();
+    })
   }
 
-  isFavorite():void{
+  isFavorite():void{//
     this.favorite=!this.favorite;
   }
-  isClicked():void{
+  isClicked():void{//
     this.clicked=!this.clicked;
   }
 
   listAdverts() {
-    this.advertService.getAdvertList().subscribe(
-      data => {
-        this.adverts = data;
+    const hasBrand:boolean = this.route.snapshot.paramMap.has('brand')
+    this.searchMode = this.route.snapshot.paramMap.has('keyword')
 
-        //mock data
-        for(let i=5;i<200;i++){
-          this.adverts[i]=data[1]
+    if(hasBrand){
+      this.currentBrand=this.route.snapshot.paramMap.get('brand');
+      this.advertService.getAdvertsByBrand(this.currentBrand).subscribe(
+        data => {
+          this.adverts = data;
         }
-      }
-    )
+      )
+    }else if (this.searchMode){
+      const keyword:string =this.route.snapshot.paramMap.get('keyword')
+      this.advertService.searchAdverts(keyword).subscribe(
+        data => {
+          this.adverts = data;
+        }
+      )
+    } else {
+      this.advertService.getAdvertList().subscribe(
+        data => {
+          this.adverts = data;
+        }
+      )
+    }
   }
 }

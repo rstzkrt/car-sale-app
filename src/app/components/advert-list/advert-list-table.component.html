@@ -1,9 +1,13 @@
 <mat-toolbar color="primary">
+  <button routerLink="/adverts" color="primary" mat-flat-button> <mat-icon>view_list</mat-icon> All Adverts</button>
   <button color="primary" mat-flat-button>
     <mat-icon>add</mat-icon>
     Create an advert
   </button>
-  <button color="primary" mat-flat-button (click)="isClicked()">Filter</button>
+
+  <button color="primary" mat-flat-button (click)="isClicked()"> <mat-icon>filter_alt</mat-icon> Filter</button>
+
+
 </mat-toolbar>
 
 <div class="content">

@@ -15,8 +15,10 @@ export class AdvertService {
   }
 
   getAdvertsByBrand(brand: string): Observable<Advert[]> {
-    const advertUrl = `https://car-sale-api.herokuapp.com/advert/advert/car/${brand}/`;
-    return this.httpClient.get<Advert[]>(advertUrl);
+    const advertUrl = `https://car-sale-api.herokuapp.com/adverts/search/findAllByCar_Brand?brand=${brand}`;
+    return this.httpClient.get<GetResponse>(advertUrl).pipe(
+      map(response => response._embedded.adverts)
+    );
   }
 
   getAdvertById(id: number):Observable<Advert>{
@@ -26,6 +28,14 @@ export class AdvertService {
 
   getAdvertList(): Observable<Advert[]> {
     return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
+      map(response => response._embedded.adverts)
+    );
+  }
+
+
+  searchAdverts(theKeyword:string):Observable<Advert[]>{
+    const url = ``;//elastic search url
+    return this.httpClient.get<GetResponse>(url).pipe(
       map(response => response._embedded.adverts)
     );
   }

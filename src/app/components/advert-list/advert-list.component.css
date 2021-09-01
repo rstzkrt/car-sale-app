@@ -1,7 +1,7 @@
 mat-toolbar {
   justify-content: space-between;
   margin-left: 16px;
-  margin-right: 18px;
+  margin-right: 16px;
 }
 
 .content {
@@ -16,6 +16,7 @@ mat-toolbar {
 .mat-card{
   display:flex;
   flex-direction: column;
+
 }
 
 .mat-card-header {
