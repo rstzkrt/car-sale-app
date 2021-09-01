@@ -22,12 +22,14 @@ import {FilterTableComponent} from "./components/filter-table/filter-table.compo
 import {MatSliderModule} from "@angular/material/slider";
 import { AdvertDetailPageComponent } from './components/advert-detail-page/advert-detail-page.component';
 import {  RouterModule,Routes} from "@angular/router";
+import { SearchComponent } from './components/search/search.component';
 
 
 const routes:Routes =[
   {path:'adverts/:id',component:AdvertDetailPageComponent},
-  {path:'adverts',component:AdvertListComponent},
+  {path:'search/:keyword',component:AdvertListComponent},
   {path:'brands/:brand',component:AdvertListComponent},//when click to brands ,list the cars by the brand
+  {path:'adverts',component:AdvertListComponent},
   {path:'',redirectTo:'adverts',pathMatch:'full'},
   {path:'**',redirectTo:'adverts',pathMatch:'full'}
 ]
@@ -38,7 +40,8 @@ const routes:Routes =[
     AdvertListComponent,
     BrandListComponent,
     FilterTableComponent,
-    AdvertDetailPageComponent
+    AdvertDetailPageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
