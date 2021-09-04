@@ -31,10 +31,9 @@ export class AdvertService {
       map(response => response._embedded.adverts)
     );
   }
-
-
+  
   searchAdverts(theKeyword:string):Observable<Advert[]>{
-    const url = ``;//elastic search url
+    const url = `https://car-sale-api.herokuapp.com/adverts/search/findByTitleContaining?keyword=${theKeyword}`;
     return this.httpClient.get<GetResponse>(url).pipe(
       map(response => response._embedded.adverts)
     );
