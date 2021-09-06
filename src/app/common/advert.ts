@@ -1,3 +1,5 @@
+import {User} from "./user";
+
 export class Advert {
   id:string;
   description: string;
@@ -15,4 +17,5 @@ export class Advert {
   carFuelType:string;
   carCondition:string;
   photos:string[];
+  postedByUser:User;
 }
