@@ -15,5 +15,3 @@ export class Advert {
   postedBy: AppUser;
   reports:Report[]
 }
-
-
