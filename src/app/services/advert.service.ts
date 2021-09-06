@@ -15,10 +15,8 @@ export class AdvertService {
   }
 
   getAdvertsByBrand(brand: string): Observable<Advert[]> {
-    const advertUrl = `http://localhost:8080/adverts/search/findAllByCarBrand?brand=${brand}`;
-    return this.httpClient.get<GetResponse>(advertUrl).pipe(
-      map(response => response._embedded.adverts)
-    );
+    const advertUrl = `http://localhost:8080/adverts/findByBrand/${brand}`;
+    return this.httpClient.get<Advert[]>(advertUrl);
   }
 
   getAdvertById(id: string):Observable<Advert>{
@@ -27,9 +25,7 @@ export class AdvertService {
   }
 
   getAdvertList(): Observable<Advert[]> {
-    return this.httpClient.get<GetResponse>(this.baseUrl).pipe(
-      map(response => response._embedded.adverts)
-    );
+    return this.httpClient.get<Advert[]>(this.baseUrl);
   }
 
   // searchAdverts(theKeyword:string):Observable<Advert[]>{
