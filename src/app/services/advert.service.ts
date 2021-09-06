@@ -9,20 +9,20 @@ import {Advert} from '../common/advert';
 })
 export class AdvertService {
 
-  private baseUrl = "https://car-sale-api.herokuapp.com/adverts"
+  private baseUrl = "http://localhost:8080/adverts"
 
   constructor(private httpClient: HttpClient) {
   }
 
   getAdvertsByBrand(brand: string): Observable<Advert[]> {
-    const advertUrl = `https://car-sale-api.herokuapp.com/adverts/search/findAllByCar_Brand?brand=${brand}`;
+    const advertUrl = `http://localhost:8080/adverts/search/findAllByCarBrand?brand=${brand}`;
     return this.httpClient.get<GetResponse>(advertUrl).pipe(
       map(response => response._embedded.adverts)
     );
   }
 
-  getAdvertById(id: number):Observable<Advert>{
-    const url = `https://car-sale-api.herokuapp.com/adverts/${id}?projection=advertProjection`;
+  getAdvertById(id: string):Observable<Advert>{
+    const url = `http://localhost:8080/adverts/${id}`;
     return this.httpClient.get<Advert>(url);
   }
 
@@ -31,13 +31,14 @@ export class AdvertService {
       map(response => response._embedded.adverts)
     );
   }
-  
-  searchAdverts(theKeyword:string):Observable<Advert[]>{
-    const url = `https://car-sale-api.herokuapp.com/adverts/search/findByTitleContaining?keyword=${theKeyword}`;
-    return this.httpClient.get<GetResponse>(url).pipe(
-      map(response => response._embedded.adverts)
-    );
-  }
+
+  // searchAdverts(theKeyword:string):Observable<Advert[]>{
+  //   // const url = `https://car-sale-api.herokuapp.com/adverts/search/findByTitleContaining?keyword=${theKeyword}`;
+  //   // return this.httpClient.get<GetResponse>(url).pipe(
+  //   //   map(response => response._embedded.adverts)
+  //   // );
+  //   return null;
+  // }
 }
 
 interface GetResponse {
