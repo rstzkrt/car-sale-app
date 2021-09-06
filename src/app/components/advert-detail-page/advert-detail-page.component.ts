@@ -10,7 +10,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class AdvertDetailPageComponent implements OnInit {
 
-  advert:Advert=new Advert();
+  advert:Advert;
 
   constructor(private advertService:AdvertService, private route:ActivatedRoute) { }
 
@@ -21,12 +21,11 @@ export class AdvertDetailPageComponent implements OnInit {
   }
 
   handleAdvertDetail(){
-    const advertId:number=+this.route.snapshot.paramMap.get('id');
+    const advertId:string=this.route.snapshot.paramMap.get('id');
     this.advertService.getAdvertById(advertId).subscribe(
       data=>{
         this.advert=data;
       }
     )
   }
-
 }
