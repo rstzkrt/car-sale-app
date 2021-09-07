@@ -45,20 +45,20 @@ export class AdvertListComponent implements OnInit {
         }
       )
     }
-    // else if (this.searchMode){
-    //   const keyword:string =this.route.snapshot.paramMap.get('keyword')
-    //   this.advertService.searchAdverts(keyword).subscribe(
-    //     data => {
-    //       this.adverts = data;
-    //     }
-    //   )
-    // }
+    else if (this.searchMode){
+      const keyword:string =this.route.snapshot.paramMap.get('keyword')
+      this.advertService.searchAdverts(keyword).subscribe(
+        data => {
+          this.adverts = data;
+        }
+      )
+    }
     else {
       this.advertService.getAdvertList().subscribe(
         data => {
           this.adverts = data;
 
-          for(let i=0;i<200;i++){
+          for(let i=3;i<6;i++){
             this.adverts[i]=data[0];
           }
         }
