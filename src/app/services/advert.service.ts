@@ -28,13 +28,10 @@ export class AdvertService {
     return this.httpClient.get<Advert[]>(this.baseUrl);
   }
 
-  // searchAdverts(theKeyword:string):Observable<Advert[]>{
-  //   // const url = `https://car-sale-api.herokuapp.com/adverts/search/findByTitleContaining?keyword=${theKeyword}`;
-  //   // return this.httpClient.get<GetResponse>(url).pipe(
-  //   //   map(response => response._embedded.adverts)
-  //   // );
-  //   return null;
-  // }
+  searchAdverts(theKeyword:string):Observable<Advert[]>{
+    const url = `http://localhost:8080/adverts/elastic-search/${theKeyword}`;
+    return this.httpClient.get<Advert[]>(url);
+  }
 }
 
 interface GetResponse {
