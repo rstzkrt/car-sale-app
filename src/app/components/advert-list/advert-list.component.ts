@@ -58,9 +58,9 @@ export class AdvertListComponent implements OnInit {
         data => {
           this.adverts = data;
 
-          for(let i=3;i<6;i++){
-            this.adverts[i]=data[0];
-          }
+          // for(let i=3;i<6;i++){
+          //   this.adverts[i]=data[0];
+          // }
         }
       )
     }
