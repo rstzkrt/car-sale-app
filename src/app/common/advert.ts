@@ -1,19 +1,21 @@
-import {Image} from "./image";
-import {Car} from "./car";
-import {AppUser} from "./app-user";
-import {Report} from "./report";
+import {User} from "./user";
 
 export class Advert {
-  advertId:number;
+  id:string;
   description: string;
   title: string;
   price: number;
-  address: string;
+  city: string;
   postDate: Date;
-  images:Image[];
-  car:Car;
-  postedBy: AppUser;
-  reports:Report[]
+  coverPhoto:String[];
+  postedBy: string;
+
+  carBrand:string;
+  carTransmission:string;
+  carMileage:number;
+  carBodyType:string;
+  carFuelType:string;
+  carCondition:string;
+  photos:string[];
+  postedByUser:User;
 }
-
-

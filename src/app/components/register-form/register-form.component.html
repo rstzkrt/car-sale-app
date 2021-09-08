@@ -1,0 +1,62 @@
+<mat-toolbar color="primary">
+  <button routerLink="/adverts" mat-flat-button color="primary">
+    <mat-icon>arrow_back</mat-icon>
+    Back to adverts
+  </button>
+</mat-toolbar>
+
+
+<mat-grid-list cols="1" rowHeight="500px">
+  <mat-grid-tile>
+    <div>
+
+      <mat-form-field appearance="outline" class="width-50">
+        <mat-label>First Name</mat-label>
+        <input matInput placeholder="Etc:Resat">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="width-50 ml-2">
+        <mat-label>Surname</mat-label>
+        <input matInput placeholder="Etc:Ozkurt">
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline" class="width-100">
+        <mat-label>Email</mat-label>
+        <input matInput>
+        <mat-hint>Ex. example@example.com</mat-hint>
+      </mat-form-field>
+      <br><br>
+
+      <mat-form-field appearance="outline"  class="width-100">
+        <mat-label>Password</mat-label>
+        <input matInput>
+        <button mat-icon-button matSuffix >
+          <mat-icon >visibility_off</mat-icon>
+        </button>
+      </mat-form-field>
+      <br>
+
+      <mat-form-field appearance="outline" class="width-50">
+        <mat-label>Date of birth</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+        <mat-hint>You need to be over 18</mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="width-50 ml-2">
+        <mat-label>Select Avatar</mat-label>
+        <mat-select>
+          <mat-option value="one">First avatar</mat-option>
+          <mat-option value="two">Second avatar</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <br><br>
+      <button style="margin-left: 400px;" mat-raised-button color="primary">Submit</button>
+
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>

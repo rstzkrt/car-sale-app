@@ -8,31 +8,21 @@
         <div class="col-lg-6 col-sm-12">
 
           <app-search></app-search>
-<!--          <form action="#" class="search">-->
-<!--            <div class="input-group w-100">-->
-<!--              <input type="text" class="form-control" placeholder="Search">-->
-<!--              <div class="input-group-append">-->
-<!--                <button class="btn btn-primary" type="submit">-->
-<!--                  <i class="fa fa-search"></i>-->
-<!--                </button>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </form>-->
 
         </div>
         <div class="col-lg-4 col-sm-6 col-12">
           <div class="widgets-wrap float-md-right">
             <div class="widget-header  mr-3">
               <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-star"></i></a>
-              <span class="badge badge-pill badge-danger notify">0</span>
+              <span class="badge badge-pill badge-danger notify">+1</span>
             </div>
             <div class="widget-header icontext">
               <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
               <div class="text">
                 <span class="text-muted">Welcome!</span>
                 <div>
-                  <a href="#">Sign in</a> |
-                  <a href="#"> Register</a>
+                  <a routerLink="user-login">Login</a> |
+                  <a routerLink="user-register"> Register</a>
                 </div>
               </div>
             </div>
@@ -57,11 +47,10 @@
         </nav>
       </aside>
       <aside class="col-md-9">
-        <div class="container">
+        <div class="flex-container">
 
           <router-outlet></router-outlet>
 
-<!--          <app-advert-list></app-advert-list>-->
         </div>
       </aside>
     </div>
