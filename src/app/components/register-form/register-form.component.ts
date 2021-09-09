@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../../common/user";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-register-form',
@@ -11,5 +13,7 @@ export class RegisterFormComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  saveUser(user:User):Observable<User>{
+    return null;
+  }
 }
