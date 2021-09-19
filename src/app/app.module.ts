@@ -55,7 +55,7 @@ const routes:Routes =[
     AdvertDetailPageComponent,
     SearchComponent,
     RegisterFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
