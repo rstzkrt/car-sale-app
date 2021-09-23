@@ -17,12 +17,16 @@
               <span class="badge badge-pill badge-danger notify">+1</span>
             </div>
             <div class="widget-header icontext">
-              <a href="#" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
+              <a routerLink="user-login" class="icon icon-sm rounded-circle border"><i class="fa fa-user"></i></a>
               <div class="text">
-                <span class="text-muted">Welcome!</span>
-                <div>
-                  <a routerLink="user-login">Login & Register</a>
+                <span class="text-muted">Welcome! </span>
+                <div *ngIf="(afAuth.authState | async )===null">
+                  <p>Guest</p>
                 </div>
+                <div *ngIf="afAuth.authState |async as user">
+                  <p>{{user.displayName}}</p>
+                </div>
+
               </div>
             </div>
 
