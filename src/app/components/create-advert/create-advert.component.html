@@ -1,1 +1,183 @@
-<p>create-advert works!</p>
+<mat-toolbar color="primary">
+  <button routerLink="/adverts" mat-flat-button color="primary">
+    <mat-icon>arrow_back</mat-icon>
+    Adverts
+  </button>
+</mat-toolbar>
+
+
+<mat-grid-list cols="1" rowHeight="500px">
+  <mat-grid-tile>
+
+    <form  [formGroup]="checkoutFormGroup" (ngSubmit)="createAdvert()">
+
+      <div formGroupName="advert" >
+
+      <mat-form-field appearance="outline" class="width-50 ml-2">
+        <mat-label>Advert Title</mat-label>
+        <input type="text" matInput formControlName="title"  placeholder="">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="width-50 ml-2">
+        <mat-label>City</mat-label>
+        <input type="text" matInput formControlName="city" placeholder="Etc:">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="width-100 ml-2">
+        <mat-label>Description</mat-label>
+        <input type="text" matInput formControlName="description">
+        <mat-hint></mat-hint>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Cover Photo URL</mat-label>
+        <input type="url" matInput formControlName="coverPhoto">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Price </mat-label>
+        <input type="number" matInput formControlName="price">
+        <button  mat-icon-button matSuffix >
+          <mat-icon>monetization_on</mat-icon>
+        </button>
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline" class="width-100 ml-2">
+        <mat-label>Car Brand</mat-label>
+        <input type="text" matInput formControlName="carBrand">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Car Transmission</mat-label>
+        <input type="text" matInput formControlName="carTransmission">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Car Mileage</mat-label>
+        <input type="number" matInput formControlName="carMileage">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Car Body Type</mat-label>
+        <input type="text" matInput formControlName="carBodyType">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Car Fuel Type</mat-label>
+        <input type="text" matInput formControlName="carFuelType">
+      </mat-form-field>
+
+
+      <mat-form-field appearance="outline"  class="width-100 ml-2">
+        <mat-label>Car Condition </mat-label>
+        <input type="text" matInput formControlName="carCondition">
+      </mat-form-field>
+
+      <br>
+      <button type="submit" style="margin-left: 400px;" mat-raised-button color="primary">Submit</button>
+
+        </div>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<!--<mat-grid-list cols="1" rowHeight="500px">-->
+<!--  <mat-grid-tile>-->
+
+<!--    <form  [formGroup]="checkoutFormGroup" (ngSubmit)="OnSubmit()">-->
+
+<!--      <mat-form-field appearance="outline" class="width-50 ml-2">-->
+<!--        <mat-label>Advert Title</mat-label>-->
+<!--        <input matInput formControlName="title"  placeholder="">-->
+<!--      </mat-form-field>-->
+
+<!--      <mat-form-field appearance="outline" class="width-50 ml-2">-->
+<!--        <mat-label>City</mat-label>-->
+<!--        <input matInput formControlName="city" placeholder="Etc:">-->
+<!--      </mat-form-field>-->
+
+<!--      <mat-form-field appearance="outline" class="width-100 ml-2">-->
+<!--        <mat-label>Description</mat-label>-->
+<!--        <input matInput formControlName="description">-->
+<!--        <mat-hint></mat-hint>-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Cover Photo URL</mat-label>-->
+<!--        <input matInput formControlName="coverPhoto">-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Price </mat-label>-->
+<!--        <input matInput formControlName="price">-->
+<!--        <button mat-icon-button matSuffix >-->
+<!--          <mat-icon>monetization_on</mat-icon>-->
+<!--        </button>-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Brand</mat-label>-->
+<!--        <input matInput formControlName="carBrand">-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Transmission</mat-label>-->
+<!--        <input matInput formControlName="carTransmission">-->
+<!--      </mat-form-field>-->
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Mileage</mat-label>-->
+<!--        <input matInput formControlName="carMileage">-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Body Type</mat-label>-->
+<!--        <input matInput formControlName="carBodyType">-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Fuel Type</mat-label>-->
+<!--        <input matInput formControlName="carFuelType">-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field appearance="outline"  class="width-100 ml-2">-->
+<!--        <mat-label>Car Condition </mat-label>-->
+<!--        <input matInput formControlName="carCondition">-->
+<!--      </mat-form-field>-->
+
+<!--      &lt;!&ndash;      <mat-form-field appearance="outline" class="width-50">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-label>Date of birth</mat-label>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <input matInput [matDatepicker]="picker">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-datepicker touchUi #picker></mat-datepicker>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-hint>You need to be over 18</mat-hint>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </mat-form-field>&ndash;&gt;-->
+
+
+<!--      &lt;!&ndash;      <mat-form-field appearance="outline" class="width-50 ml-2">&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-label>Select Avatar</mat-label>&ndash;&gt;-->
+<!--      &lt;!&ndash;        <mat-select>&ndash;&gt;-->
+<!--      &lt;!&ndash;          <mat-option value="one">First avatar</mat-option>&ndash;&gt;-->
+<!--      &lt;!&ndash;          <mat-option value="two">Second avatar</mat-option>&ndash;&gt;-->
+<!--      &lt;!&ndash;        </mat-select>&ndash;&gt;-->
+<!--      &lt;!&ndash;      </mat-form-field>&ndash;&gt;-->
+
+<!--      <br>-->
+<!--      <button type="submit" style="margin-left: 400px;" mat-raised-button color="primary">Submit</button>-->
+
+<!--    </form>-->
+<!--  </mat-grid-tile>-->
+<!--</mat-grid-list>-->
