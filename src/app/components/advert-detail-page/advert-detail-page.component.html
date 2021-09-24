@@ -7,7 +7,7 @@
 </mat-toolbar>
 
 <br>
-<div class="content">
+<div *ngIf="afAuth.authState |async as user" class="content">
   <mat-card class="mat-elevation-z4" fxFlexAlign="stretch">
     <mat-card-header>
 
@@ -31,14 +31,59 @@
       <p>Brand: {{advert.carBrand}}</p>
 
       <h2>
-        {{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}{{advert.description}}
+        {{advert.description}}
       </h2>
     </mat-card-content>
     <p>Contact: {{advert.postedByUser.email}}</p>
     <mat-card-actions>
-      <h1 align="right">{{ advert.price | currency:"USD" }}  </h1>
+      <h1 align="right">{{ advert.price | currency:"USD" }}</h1>
+
+      <button *ngIf="user.uid===advert.postedByUser.uid" (click)="onDelete()" mat-button color="warn">
+        <mat-icon>delete</mat-icon>Delete
+      </button>
+
+      <button *ngIf="user.uid===advert.postedByUser.uid" (click)="onDelete()" mat-button color="primary">
+        <mat-icon>update</mat-icon>Update
+      </button>
+
     </mat-card-actions>
 
   </mat-card>
 </div>
-<!-- add map for the location, change layout , add rating, modify favourite button -->
+
+<div *ngIf="(afAuth.authState |async )===null" class="content">
+  <mat-card class="mat-elevation-z4" fxFlexAlign="stretch">
+    <mat-card-header>
+
+      <button mat-icon-button  color="primary"  style="margin-left: auto" >
+        <mat-icon>favorite</mat-icon>
+      </button>
+
+      <!--      <button mat-icon-button color="primary"  style="margin-left: auto">-->
+      <!--        <mat-icon>check_circle</mat-icon>-->
+      <!--      </button>-->
+
+      <img mat-card-avatar src="{{advert.postedByUser.avatar}}" style="background-size: cover;">
+      <mat-card-title>{{advert.postedByUser.firstName}} {{advert.postedByUser.lastName}}</mat-card-title>
+      <mat-card-subtitle>{{advert.city}}</mat-card-subtitle>
+
+    </mat-card-header>
+
+    <img mat-card-image src="{{advert.coverPhoto}}" style="object-fit: cover; height: 45%;">
+    <mat-card-content>
+      <h1 align="center">{{advert.title}}</h1>
+      <p>Brand: {{advert.carBrand}}</p>
+
+      <h2>
+        {{advert.description}}
+      </h2>
+    </mat-card-content>
+    <p>Contact: {{advert.postedByUser.email}}</p>
+    <mat-card-actions>
+
+            <h1 align="right">{{ advert.price | currency:"USD" }}</h1>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>
