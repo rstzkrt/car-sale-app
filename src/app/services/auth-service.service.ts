@@ -12,7 +12,6 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class AuthServiceService {
-
   user:firebase.User;
   reqUser:User=new User();
   currentUser:User;
@@ -20,9 +19,15 @@ export class AuthServiceService {
   idToken:Observable<string | null>;
 
   constructor(private afAuth: AngularFireAuth,private userService:UserService, private router: Router) {
-    this.afAuth.authState.subscribe( async user => {
+    this.afAuth.authState.subscribe(user => {
       this.user = user;
-
+      if(user){
+        user.getIdToken().then((token) => {
+          userService.getAuthenticatedUser(token).subscribe(data => {
+            this.currentUser = data;
+          }, error => console.error(error))
+        })
+      }
     });
   }
 
@@ -35,16 +40,11 @@ export class AuthServiceService {
   async loginWithGoogle() {
    await this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(
      res =>{
-
        this.reqUser.uid=res.user.uid
        this.reqUser.email=res.user.email;
        this.reqUser.avatar=res.user.photoURL;
        this.reqUser.firstName=res.user.displayName.split(" ")[0];
        this.reqUser.lastName=res.user.displayName.split(" ")[length];
-
-       this.idToken=this.afAuth.idToken;
-
-       
 
        if(res.additionalUserInfo.isNewUser){
          this.userService.addUser(this.reqUser).subscribe(
