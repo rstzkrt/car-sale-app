@@ -37,8 +37,8 @@ import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {environment} from "../environments/environment";
 import {AuthServiceService} from "./services/auth-service.service";
 import { CreateAdvertComponent } from './components/create-advert/create-advert.component';
-import {AngularFireAuthGuard,redirectUnauthorizedTo} from "@angular/fire/compat/auth-guard";
 import {AuthGuard} from "./guards/auth.guard";
+import { FavouriteAdvertsComponent } from './components/favourite-adverts/favourite-adverts.component';
 
 
 const routes:Routes =[
@@ -49,6 +49,7 @@ const routes:Routes =[
   {path:'user-login',component:LoginFormComponent},
   {path:'adverts',component:AdvertListComponent},
   {path:'create-advert',component:CreateAdvertComponent,canActivate:[AuthGuard]},
+  {path:'favourites',component:FavouriteAdvertsComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'adverts',pathMatch:'full'},
   {path:'**',redirectTo:'adverts',pathMatch:'full'}
 ]
@@ -64,6 +65,7 @@ const routes:Routes =[
     RegisterFormComponent,
     LoginFormComponent,
     CreateAdvertComponent,
+    FavouriteAdvertsComponent,
   ],
   imports: [
     BrowserModule,
