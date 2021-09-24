@@ -3,27 +3,56 @@
     <mat-icon>arrow_back</mat-icon>
     Back to adverts
   </button>
+
+  <button mat-flat-button color="warn" *ngIf="afAuth.authState |async" (click)="logout()">Logout
+  </button>
+
 </mat-toolbar>
 
-<mat-grid-list cols="1" rowHeight="300px">
-  <mat-grid-tile>
-    <div class="example-container">
+<br><br>
 
 
-      <mat-form-field appearance="fill" style="width: 400px">
-        <mat-label>Email</mat-label>
-        <input matInput>
-      </mat-form-field>
+<div *ngIf="(afAuth.authState |async)===null" class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
 
+  <mat-card class="box">
+    <mat-card-header>
+      <mat-card-title style="color:#3f51b5; ">Sign In</mat-card-title>
       <br><br>
+    </mat-card-header>
 
-      <mat-form-field appearance="fill" style="width: 400px">
-        <mat-label>Password</mat-label>
-        <input matInput>
-      </mat-form-field>
-      <br>
+    <form class="example-form">
+      <button mat-stroked-button color="primary" class="btn-block">
+        Login With Facebook
+      </button>
+      <button (click)="loginWithGoogle()" mat-stroked-button color="primary" class="btn-block">
+        Login With Google
+      </button>
+      <button mat-stroked-button color="primary" class="btn-block">
+        Login With Email
+      </button>
+    </form>
+  </mat-card>
+</div>
+
+<div *ngIf="afAuth.authState |async as user" class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+
+  <mat-card class="box">
+    <mat-card-header>
+      <img mat-card-avatar src="{{ user.photoURL}}" style="background-size: cover;">
+      <mat-card-title style="color:#3f51b5; ">{{ user.email }}</mat-card-title>
+    </mat-card-header>
 
 
-    </div>
-  </mat-grid-tile>
-</mat-grid-list>
+
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary"> Update Credentials
+      </button>
+      <button routerLink="/myAdverts" mat-raised-button color="primary">
+        My Adverts
+      </button>
+
+    </mat-card-actions>
+
+  </mat-card>
+</div>

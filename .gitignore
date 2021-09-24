@@ -18,6 +18,8 @@ chrome-profiler-events*.json
 .project
 .classpath
 .c9/
+**/src/environments/environment.prod.ts
+**/src/environments/environment.ts
 *.launch
 .settings/
 *.sublime-workspace

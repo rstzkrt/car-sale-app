@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthServiceService} from "../../services/auth-service.service";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 @Component({
   selector: 'app-login-form',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthServiceService, public afAuth:AngularFireAuth) { }
 
   ngOnInit(): void {
   }
 
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }

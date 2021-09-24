@@ -15,6 +15,7 @@
     "@angular/common": "~12.2.0",
     "@angular/compiler": "~12.2.0",
     "@angular/core": "~12.2.0",
+    "@angular/fire": "^7.0.4",
     "@angular/flex-layout": "^12.0.0-beta.34",
     "@angular/forms": "~12.2.0",
     "@angular/material": "^12.2.2",
@@ -23,6 +24,7 @@
     "@angular/router": "~12.2.0",
     "@fortawesome/fontawesome": "^1.1.8",
     "bootstrap": "^5.1.0",
+    "firebase": "^9.0.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

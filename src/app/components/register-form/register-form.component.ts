@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {User} from "../../common/user";
-import {Observable} from "rxjs";
+import {AuthServiceService} from "../../services/auth-service.service";
 
 @Component({
   selector: 'app-register-form',
@@ -9,11 +8,13 @@ import {Observable} from "rxjs";
 })
 export class RegisterFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService:AuthServiceService) { }
 
   ngOnInit(): void {
   }
-  saveUser(user:User):Observable<User>{
-    return null;
+
+  loginWithGoogle() {
+    this.authService.loginWithGoogle();
   }
+
 }

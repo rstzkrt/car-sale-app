@@ -21,8 +21,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatRadioModule} from "@angular/material/radio";
 import {FilterTableComponent} from "./components/filter-table/filter-table.component";
 import {MatSliderModule} from "@angular/material/slider";
-import { AdvertDetailPageComponent } from './components/advert-detail-page/advert-detail-page.component';
-import {  RouterModule,Routes} from "@angular/router";
+import {AdvertDetailPageComponent } from './components/advert-detail-page/advert-detail-page.component';
+import { RouterModule,Routes} from "@angular/router";
 import { SearchComponent } from './components/search/search.component';
 import { RegisterFormComponent } from './components/register-form/register-form.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
@@ -32,16 +32,24 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatGridListModule} from "@angular/material/grid-list";
 import {MatSelectModule} from "@angular/material/select";
 import {MatNativeDateModule, MatOptionModule} from "@angular/material/core";
-
+import {AngularFireModule} from "@angular/fire/compat";
+import {AngularFireAuthModule} from "@angular/fire/compat/auth";
+import {environment} from "../environments/environment";
+import {AuthServiceService} from "./services/auth-service.service";
+import { CreateAdvertComponent } from './components/create-advert/create-advert.component';
+import {AuthGuard} from "./guards/auth.guard";
+import { FavouriteAdvertsComponent } from './components/favourite-adverts/favourite-adverts.component';
 
 
 const routes:Routes =[
   {path:'adverts/:id',component:AdvertDetailPageComponent},
   {path:'search/:keyword',component:AdvertListComponent},
-  {path:'brands/:brand',component:AdvertListComponent},//when click to brands ,list the cars by the brand
+  {path:'brands/:brand',component:AdvertListComponent},
   {path:'user-register',component:RegisterFormComponent},
   {path:'user-login',component:LoginFormComponent},
   {path:'adverts',component:AdvertListComponent},
+  {path:'create-advert',component:CreateAdvertComponent,canActivate:[AuthGuard]},
+  {path:'favourites',component:FavouriteAdvertsComponent,canActivate:[AuthGuard]},
   {path:'',redirectTo:'adverts',pathMatch:'full'},
   {path:'**',redirectTo:'adverts',pathMatch:'full'}
 ]
@@ -55,7 +63,9 @@ const routes:Routes =[
     AdvertDetailPageComponent,
     SearchComponent,
     RegisterFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    CreateAdvertComponent,
+    FavouriteAdvertsComponent,
   ],
   imports: [
     BrowserModule,
@@ -80,15 +90,16 @@ const routes:Routes =[
     MatGridListModule,
     MatSelectModule,
     MatOptionModule,
-
     MatDatepickerModule,
     MatButtonModule,
     MatFormFieldModule,
     MatNativeDateModule,
 
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
 
   ],
-  providers: [AdvertService ,HttpClient ,BrandLogoService],
+  providers: [AdvertService ,HttpClient ,BrandLogoService,AuthServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {
