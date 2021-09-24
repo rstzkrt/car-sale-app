@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AdvertService} from "../../services/advert.service";
 import {Advert} from "../../common/advert";
 import {ActivatedRoute} from "@angular/router";
+import {AuthServiceService} from "../../services/auth-service.service";
+import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 @Component({
   selector: 'app-advert-list',
@@ -18,7 +20,8 @@ export class AdvertListComponent implements OnInit {
   favorite:boolean=false;//
 
   constructor(private advertService: AdvertService,
-              private route:ActivatedRoute) {}
+              private route:ActivatedRoute,
+              public afAuth:AngularFireAuth) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(()=>{
@@ -57,7 +60,6 @@ export class AdvertListComponent implements OnInit {
       this.advertService.getAdvertList().subscribe(
         data => {
           this.adverts = data;
-
           // for(let i=3;i<6;i++){
           //   this.adverts[i]=data[0];
           // }

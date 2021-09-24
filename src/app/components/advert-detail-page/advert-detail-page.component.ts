@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AdvertService} from "../../services/advert.service";
 import {Advert} from "../../common/advert";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Route, Router} from "@angular/router";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 
 @Component({
@@ -15,6 +15,7 @@ export class AdvertDetailPageComponent implements OnInit {
 
   constructor(private advertService:AdvertService,
               private route:ActivatedRoute,
+              private router:Router,
               public afAuth:AngularFireAuth) { }
 
   ngOnInit(): void {
@@ -24,7 +25,19 @@ export class AdvertDetailPageComponent implements OnInit {
   }
 
   onDelete(){
-    //
+    const advertId:string=this.route.snapshot.paramMap.get('id');
+
+    this.advertService.getToken().then((token) => {
+
+      this.advertService.deleteAdvert(advertId, token).subscribe(res => {
+        console.log(res)
+
+        this.router.navigateByUrl(`/adverts`)
+
+      }, error => {
+        console.error(error)
+      });
+    })
   }
 
   onUpdate(){
