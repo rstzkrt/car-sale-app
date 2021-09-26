@@ -10,7 +10,7 @@ import {AuthServiceService} from "./auth-service.service";
 })
 export class AdvertService {
 
-  private baseUrl = "http://localhost:8080/adverts"
+  private baseUrl = "https://car-sale-mongodb.herokuapp.com/adverts"
 
   constructor(private httpClient: HttpClient,public afAuth:AngularFireAuth,private service:AuthServiceService) {
   }
@@ -20,12 +20,12 @@ export class AdvertService {
   }
 
   getAdvertsByBrand(brand: string): Observable<Advert[]> {
-    const advertUrl = `http://localhost:8080/adverts/findByBrand/${brand}`;
+    const advertUrl = `https://car-sale-mongodb.herokuapp.com/adverts/findByBrand/${brand}`;
     return this.httpClient.get<Advert[]>(advertUrl);
   }
 
   getAdvertById(id: string):Observable<Advert>{
-    const url = `http://localhost:8080/adverts/${id}`;
+    const url = `https://car-sale-mongodb.herokuapp.com/adverts/${id}`;
     return this.httpClient.get<Advert>(url);
   }
 
@@ -34,7 +34,7 @@ export class AdvertService {
   }
 
   searchAdverts(theKeyword:string):Observable<Advert[]>{
-    const url = `http://localhost:8080/adverts/elastic-search/${theKeyword}`;
+    const url = `https://car-sale-mongodb.herokuapp.com/adverts/elastic-search/${theKeyword}`;
     return this.httpClient.get<Advert[]>(url);
   }
 
@@ -59,7 +59,7 @@ export class AdvertService {
   }
 
   deleteAdvert(advertId:string,token:string):Observable<any>{
-    const url=`http://localhost:8080/adverts/${advertId}`
+    const url=`https://car-sale-mongodb.herokuapp.com/adverts/${advertId}`
     const headers = { 'content-type': 'application/json','Authorization': `Bearer ${token}`};
     return this.httpClient.delete(url,{'headers':headers})
   }

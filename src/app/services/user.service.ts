@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
 })
 export class UserService {
 
-  baseURL: string = "http://localhost:8080/users";
+  baseURL: string = "https://car-sale-mongodb.herokuapp.com/users";
 
   constructor(private httpClient:HttpClient) { }
 
@@ -20,7 +20,7 @@ export class UserService {
   }
 
   getAuthenticatedUser(token: String) : Observable<User>{
-    const url=`http://localhost:8080/users/me`;
+    const url=`https://car-sale-mongodb.herokuapp.com/users/me`;
     const headers = { 'content-type': 'application/json','Authorization': `Bearer ${token}` };
     return this.httpClient.get<User>(url,{'headers': headers});
   }
