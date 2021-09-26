@@ -60,9 +60,6 @@ export class AdvertListComponent implements OnInit {
       this.advertService.getAdvertList().subscribe(
         data => {
           this.adverts = data;
-          // for(let i=3;i<6;i++){
-          //   this.adverts[i]=data[0];
-          // }
         }
       )
     }
