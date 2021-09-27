@@ -50,8 +50,8 @@ const routes:Routes =[
   {path:'adverts',component:AdvertListComponent},
   {path:'create-advert',component:CreateAdvertComponent,canActivate:[AuthGuard]},
   {path:'favourites',component:FavouriteAdvertsComponent,canActivate:[AuthGuard]},
-  {path:'',redirectTo:'adverts',pathMatch:'full'},
-  {path:'**',redirectTo:'adverts',pathMatch:'full'}
+  {path:'',redirectTo:'/',pathMatch:'full'},
+  {path:'**',redirectTo:'/',pathMatch:'full'}
 ]
 
 @NgModule({
