@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "",
+    apiKey: "AIzaSyDUGZ8H5MTcT8LP6TXq4hxzPM_Nib3SZfU",
     authDomain: "car-sale-auth.firebaseapp.com",
     projectId: "car-sale-auth",
     storageBucket: "car-sale-auth.appspot.com",
