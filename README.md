@@ -26,3 +26,6 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 
 ![Screenshot 2021-09-17 at 17-44-46 CarSaleApp](https://user-images.githubusercontent.com/59877035/133816673-9de0e28f-904b-4ec2-b8a9-432aaf0ee0cc.png)
+
+# Usage:
+Basically you can get the website https://car-sale-app.herokuapp.com, sign in with your gmail (only google authentication is available for now) then you can create and publish your advert . If you like to delete the advert just sign in with your google account ,click on see details then delete button will appear on the left bottom corner.
